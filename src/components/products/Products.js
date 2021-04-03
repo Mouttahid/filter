@@ -3,9 +3,9 @@ import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 import Product from './Product';
 
 const api = new WooCommerceRestApi({
-  url: "https://www.filtremaroc.com/",
-  consumerKey: "ck_88449088097e6e874d02a09a050ffc92c2c9c1b2",
-  consumerSecret: "cs_feae8386a907b754a34739dfa2965d7f27e03497",
+  url: "https://dev.maladesdepeche.com/",
+  consumerKey: "ck_0d9be79565847d48b05de15bb714452c5c95891a",
+  consumerSecret: "cs_23bea0c5d1b3cf8a09491a464f64fab8b9f7b424",
   version: "wc/v3"
 });
 
@@ -29,12 +29,7 @@ export default function Products() {
             console.log(products)
 
           })
-          .catch((error) => {
-            // Invalid request, for 4xx and 5xx statuses
-            console.log("Response Status:", error.response.status);
-            console.log("Response Headers:", error.response.headers);
-            console.log("Response Data:", error.response.data);
-          })
+          .catch(err=>console.log(err))
 
         },[]);
         
@@ -42,7 +37,7 @@ export default function Products() {
             return ( products.map( (product) => <Product key={product.id} product={product} /> ) );
             } else {
             return ( 
-                <h4>loading</h4>
+                <h4 className="text-white text-center">loading</h4>
                 )
 
         }

@@ -1,18 +1,17 @@
 import React from 'react'
 
 export default function Product({product}) {
+    const image = (product.images.length > 0) ? product.images[0].src : 'https://dev.maladesdepeche.com/wp-content/uploads/2020/04/logo-malade-170x111.png' ;
     return (
-        <div className='container-fluid'>
-        <div className="card mx-auto col-md-3 col-10 mt-5 pt-4">
-            <div className="d-flex sale">
-                {product.on_sale && <div className="btn">SALE</div>}
-                
-            </div> <img className='mx-auto img-thumbnail' src={product.images[0].src} width="auto" height="auto" />
-            <div className="card-body text-center mx-auto">
-                <h5 className="card-title">{product.name}</h5>
-                <p className="card-text" dangerouslySetInnerHTML={{__html: product.price_html}}></p>
-            </div>
+        <div className="col-lg-3 col-md-4 col-sm-6 ">
+    <div className="card align-between">
+        <img class="card-img-top" src={image} alt="Card image cap" style={{height:200,width:"100%"}}/>
+        <div class="card-body mr-2">
+        <h5 class="card-title">{product.name.substring(0, 20)}</h5>
+        <p dangerouslySetInnerHTML={{__html: product.price_html}} ></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
+    </div>
     </div>
     )
 }
